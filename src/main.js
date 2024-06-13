@@ -1,6 +1,8 @@
-import './assets/main.css'
+import { createApp } from "vue";
+import App from "./App.vue";
+import quasarInit from "./quasar";
 
-import { createApp } from 'vue'
-import App from './App.vue'
+const app = createApp(App);
+quasarInit({ app });
 
-createApp(App).mount('#app')
+app.mount("#app");

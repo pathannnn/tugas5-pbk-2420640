@@ -1,47 +1,37 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <q-layout view="hHh lpR fFf">
+    <Navbar />
+    <q-page-container>
+      <Carousel />
+      <div class="q-pa-md">
+        <q-page class="row justify-around">
+          <ProductCard v-for="n in 3" :key="n" />
+        </q-page>
+      </div>
+    </q-page-container>
+    <Footer />
+  </q-layout>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import Navbar from "./components/Navbar.vue";
+import Carousel from "./components/Carousel.vue";
+import ProductCard from "./components/ProductCard.vue";
+import Footer from "./components/Footer.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  name: "App",
+  components: {
+    Navbar,
+    Carousel,
+    ProductCard,
+    Footer,
+  },
+};
+</script>
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+body {
+  font-family: "Arial", sans-serif;
 }
 </style>
